@@ -1,0 +1,1519 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> declaration_list
+Rule 2     declaration_list -> declaration_list declaration
+Rule 3     declaration_list -> declaration
+Rule 4     declaration -> statement
+Rule 5     declaration -> sentencia
+Rule 6     statement -> INT ID EQUAL expression SEMICOLON
+Rule 7     statement -> CIN ID SEMICOLON
+Rule 8     statement -> STR ID EQUAL STRING SEMICOLON
+Rule 9     statement -> COUT expression SEMICOLON
+Rule 10    statement -> COUT STRING SEMICOLON
+Rule 11    expression -> expression PLUS expression
+Rule 12    expression -> expression MINUS expression
+Rule 13    expression -> expression TIMES expression
+Rule 14    expression -> expression DIVIDE expression
+Rule 15    expression -> MINUS expression
+Rule 16    expression -> LPAREN expression RPAREN
+Rule 17    expression -> NUMBER
+Rule 18    sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+Rule 19    sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+Rule 20    sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+Rule 21    sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+Rule 22    condiciones -> LESS
+Rule 23    condiciones -> GREATER
+Rule 24    condiciones -> DEQUAL
+Rule 25    condiciones -> DISTINT
+Rule 26    condiciones -> LESSEQUAL
+Rule 27    condiciones -> GREATEREQUAL
+Rule 28    condicion -> expression condiciones expression
+Rule 29    sentencia -> sentencia_mientras
+Rule 30    sentencia -> statement
+Rule 31    sentencia -> sentencia_para
+Rule 32    sentencia -> sentencia_si
+Rule 33    lista_sentencia -> lista_sentencia sentencia
+Rule 34    lista_sentencia -> sentencia
+Rule 35    expression -> ID
+
+Terminals, with rules where they appear
+
+CIN                  : 7
+COUT                 : 9 10
+DEQUAL               : 24
+DISTINT              : 25
+DIVIDE               : 14
+ELSE                 : 21
+EQUAL                : 6 8 19
+FOR                  : 19
+GREATER              : 23
+GREATEREQUAL         : 27
+ID                   : 6 7 8 19 35
+IF                   : 20 21
+INT                  : 6
+LBLOCK               : 18 19 20 21 21
+LESS                 : 22
+LESSEQUAL            : 26
+LPAREN               : 16 18 19 20 21 21
+MINUS                : 12 15
+NUMBER               : 17
+PLUS                 : 11
+RBLOCK               : 18 19 20 21 21
+RPAREN               : 16 18 19 20 21 21
+SEMICOLON            : 6 7 8 9 10 19
+STR                  : 8
+STRING               : 8 10
+TIMES                : 13
+WHILE                : 18
+error                : 
+
+Nonterminals, with rules where they appear
+
+condicion            : 18 20 21
+condiciones          : 28
+declaration          : 2 3
+declaration_list     : 1 2
+expression           : 6 9 11 11 12 12 13 13 14 14 15 16 19 19 28 28
+lista_sentencia      : 18 19 20 21 21 33
+program              : 0
+sentencia            : 5 33 34
+sentencia_mientras   : 29
+sentencia_para       : 31
+sentencia_si         : 32
+statement            : 4 30
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . declaration_list
+    (2) declaration_list -> . declaration_list declaration
+    (3) declaration_list -> . declaration
+    (4) declaration -> . statement
+    (5) declaration -> . sentencia
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    program                        shift and go to state 1
+    declaration_list               shift and go to state 2
+    declaration                    shift and go to state 3
+    statement                      shift and go to state 4
+    sentencia                      shift and go to state 5
+    sentencia_mientras             shift and go to state 10
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> declaration_list .
+    (2) declaration_list -> declaration_list . declaration
+    (4) declaration -> . statement
+    (5) declaration -> . sentencia
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    $end            reduce using rule 1 (program -> declaration_list .)
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    WHILE           shift and go to state 13
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    declaration                    shift and go to state 16
+    statement                      shift and go to state 4
+    sentencia                      shift and go to state 5
+    sentencia_mientras             shift and go to state 10
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 3
+
+    (3) declaration_list -> declaration .
+
+    INT             reduce using rule 3 (declaration_list -> declaration .)
+    CIN             reduce using rule 3 (declaration_list -> declaration .)
+    STR             reduce using rule 3 (declaration_list -> declaration .)
+    COUT            reduce using rule 3 (declaration_list -> declaration .)
+    WHILE           reduce using rule 3 (declaration_list -> declaration .)
+    FOR             reduce using rule 3 (declaration_list -> declaration .)
+    IF              reduce using rule 3 (declaration_list -> declaration .)
+    $end            reduce using rule 3 (declaration_list -> declaration .)
+
+
+state 4
+
+    (4) declaration -> statement .
+    (30) sentencia -> statement .
+
+  ! reduce/reduce conflict for INT resolved using rule 4 (declaration -> statement .)
+  ! reduce/reduce conflict for CIN resolved using rule 4 (declaration -> statement .)
+  ! reduce/reduce conflict for STR resolved using rule 4 (declaration -> statement .)
+  ! reduce/reduce conflict for COUT resolved using rule 4 (declaration -> statement .)
+  ! reduce/reduce conflict for WHILE resolved using rule 4 (declaration -> statement .)
+  ! reduce/reduce conflict for FOR resolved using rule 4 (declaration -> statement .)
+  ! reduce/reduce conflict for IF resolved using rule 4 (declaration -> statement .)
+  ! reduce/reduce conflict for $end resolved using rule 4 (declaration -> statement .)
+    INT             reduce using rule 4 (declaration -> statement .)
+    CIN             reduce using rule 4 (declaration -> statement .)
+    STR             reduce using rule 4 (declaration -> statement .)
+    COUT            reduce using rule 4 (declaration -> statement .)
+    WHILE           reduce using rule 4 (declaration -> statement .)
+    FOR             reduce using rule 4 (declaration -> statement .)
+    IF              reduce using rule 4 (declaration -> statement .)
+    $end            reduce using rule 4 (declaration -> statement .)
+
+  ! INT             [ reduce using rule 30 (sentencia -> statement .) ]
+  ! CIN             [ reduce using rule 30 (sentencia -> statement .) ]
+  ! STR             [ reduce using rule 30 (sentencia -> statement .) ]
+  ! COUT            [ reduce using rule 30 (sentencia -> statement .) ]
+  ! WHILE           [ reduce using rule 30 (sentencia -> statement .) ]
+  ! FOR             [ reduce using rule 30 (sentencia -> statement .) ]
+  ! IF              [ reduce using rule 30 (sentencia -> statement .) ]
+  ! $end            [ reduce using rule 30 (sentencia -> statement .) ]
+
+
+state 5
+
+    (5) declaration -> sentencia .
+
+    INT             reduce using rule 5 (declaration -> sentencia .)
+    CIN             reduce using rule 5 (declaration -> sentencia .)
+    STR             reduce using rule 5 (declaration -> sentencia .)
+    COUT            reduce using rule 5 (declaration -> sentencia .)
+    WHILE           reduce using rule 5 (declaration -> sentencia .)
+    FOR             reduce using rule 5 (declaration -> sentencia .)
+    IF              reduce using rule 5 (declaration -> sentencia .)
+    $end            reduce using rule 5 (declaration -> sentencia .)
+
+
+state 6
+
+    (6) statement -> INT . ID EQUAL expression SEMICOLON
+
+    ID              shift and go to state 17
+
+
+state 7
+
+    (7) statement -> CIN . ID SEMICOLON
+
+    ID              shift and go to state 18
+
+
+state 8
+
+    (8) statement -> STR . ID EQUAL STRING SEMICOLON
+
+    ID              shift and go to state 19
+
+
+state 9
+
+    (9) statement -> COUT . expression SEMICOLON
+    (10) statement -> COUT . STRING SEMICOLON
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    STRING          shift and go to state 21
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 20
+
+state 10
+
+    (29) sentencia -> sentencia_mientras .
+
+    INT             reduce using rule 29 (sentencia -> sentencia_mientras .)
+    CIN             reduce using rule 29 (sentencia -> sentencia_mientras .)
+    STR             reduce using rule 29 (sentencia -> sentencia_mientras .)
+    COUT            reduce using rule 29 (sentencia -> sentencia_mientras .)
+    WHILE           reduce using rule 29 (sentencia -> sentencia_mientras .)
+    FOR             reduce using rule 29 (sentencia -> sentencia_mientras .)
+    IF              reduce using rule 29 (sentencia -> sentencia_mientras .)
+    $end            reduce using rule 29 (sentencia -> sentencia_mientras .)
+    RBLOCK          reduce using rule 29 (sentencia -> sentencia_mientras .)
+
+
+state 11
+
+    (31) sentencia -> sentencia_para .
+
+    INT             reduce using rule 31 (sentencia -> sentencia_para .)
+    CIN             reduce using rule 31 (sentencia -> sentencia_para .)
+    STR             reduce using rule 31 (sentencia -> sentencia_para .)
+    COUT            reduce using rule 31 (sentencia -> sentencia_para .)
+    WHILE           reduce using rule 31 (sentencia -> sentencia_para .)
+    FOR             reduce using rule 31 (sentencia -> sentencia_para .)
+    IF              reduce using rule 31 (sentencia -> sentencia_para .)
+    $end            reduce using rule 31 (sentencia -> sentencia_para .)
+    RBLOCK          reduce using rule 31 (sentencia -> sentencia_para .)
+
+
+state 12
+
+    (32) sentencia -> sentencia_si .
+
+    INT             reduce using rule 32 (sentencia -> sentencia_si .)
+    CIN             reduce using rule 32 (sentencia -> sentencia_si .)
+    STR             reduce using rule 32 (sentencia -> sentencia_si .)
+    COUT            reduce using rule 32 (sentencia -> sentencia_si .)
+    WHILE           reduce using rule 32 (sentencia -> sentencia_si .)
+    FOR             reduce using rule 32 (sentencia -> sentencia_si .)
+    IF              reduce using rule 32 (sentencia -> sentencia_si .)
+    $end            reduce using rule 32 (sentencia -> sentencia_si .)
+    RBLOCK          reduce using rule 32 (sentencia -> sentencia_si .)
+
+
+state 13
+
+    (18) sentencia_mientras -> WHILE . LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+
+    LPAREN          shift and go to state 26
+
+
+state 14
+
+    (19) sentencia_para -> FOR . LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+
+    LPAREN          shift and go to state 27
+
+
+state 15
+
+    (20) sentencia_si -> IF . LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> IF . LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    LPAREN          shift and go to state 28
+
+
+state 16
+
+    (2) declaration_list -> declaration_list declaration .
+
+    INT             reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    CIN             reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    STR             reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    COUT            reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    WHILE           reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    FOR             reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    IF              reduce using rule 2 (declaration_list -> declaration_list declaration .)
+    $end            reduce using rule 2 (declaration_list -> declaration_list declaration .)
+
+
+state 17
+
+    (6) statement -> INT ID . EQUAL expression SEMICOLON
+
+    EQUAL           shift and go to state 29
+
+
+state 18
+
+    (7) statement -> CIN ID . SEMICOLON
+
+    SEMICOLON       shift and go to state 30
+
+
+state 19
+
+    (8) statement -> STR ID . EQUAL STRING SEMICOLON
+
+    EQUAL           shift and go to state 31
+
+
+state 20
+
+    (9) statement -> COUT expression . SEMICOLON
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 32
+    PLUS            shift and go to state 33
+    MINUS           shift and go to state 34
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+
+state 21
+
+    (10) statement -> COUT STRING . SEMICOLON
+
+    SEMICOLON       shift and go to state 37
+
+
+state 22
+
+    (15) expression -> MINUS . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 38
+
+state 23
+
+    (16) expression -> LPAREN . expression RPAREN
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 39
+
+state 24
+
+    (17) expression -> NUMBER .
+
+    SEMICOLON       reduce using rule 17 (expression -> NUMBER .)
+    PLUS            reduce using rule 17 (expression -> NUMBER .)
+    MINUS           reduce using rule 17 (expression -> NUMBER .)
+    TIMES           reduce using rule 17 (expression -> NUMBER .)
+    DIVIDE          reduce using rule 17 (expression -> NUMBER .)
+    RPAREN          reduce using rule 17 (expression -> NUMBER .)
+    LESS            reduce using rule 17 (expression -> NUMBER .)
+    GREATER         reduce using rule 17 (expression -> NUMBER .)
+    DEQUAL          reduce using rule 17 (expression -> NUMBER .)
+    DISTINT         reduce using rule 17 (expression -> NUMBER .)
+    LESSEQUAL       reduce using rule 17 (expression -> NUMBER .)
+    GREATEREQUAL    reduce using rule 17 (expression -> NUMBER .)
+
+
+state 25
+
+    (35) expression -> ID .
+
+    SEMICOLON       reduce using rule 35 (expression -> ID .)
+    PLUS            reduce using rule 35 (expression -> ID .)
+    MINUS           reduce using rule 35 (expression -> ID .)
+    TIMES           reduce using rule 35 (expression -> ID .)
+    DIVIDE          reduce using rule 35 (expression -> ID .)
+    RPAREN          reduce using rule 35 (expression -> ID .)
+    LESS            reduce using rule 35 (expression -> ID .)
+    GREATER         reduce using rule 35 (expression -> ID .)
+    DEQUAL          reduce using rule 35 (expression -> ID .)
+    DISTINT         reduce using rule 35 (expression -> ID .)
+    LESSEQUAL       reduce using rule 35 (expression -> ID .)
+    GREATEREQUAL    reduce using rule 35 (expression -> ID .)
+
+
+state 26
+
+    (18) sentencia_mientras -> WHILE LPAREN . condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (28) condicion -> . expression condiciones expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    condicion                      shift and go to state 40
+    expression                     shift and go to state 41
+
+state 27
+
+    (19) sentencia_para -> FOR LPAREN . ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+
+    ID              shift and go to state 42
+
+
+state 28
+
+    (20) sentencia_si -> IF LPAREN . condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> IF LPAREN . condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+    (28) condicion -> . expression condiciones expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    condicion                      shift and go to state 43
+    expression                     shift and go to state 41
+
+state 29
+
+    (6) statement -> INT ID EQUAL . expression SEMICOLON
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 44
+
+state 30
+
+    (7) statement -> CIN ID SEMICOLON .
+
+    INT             reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    CIN             reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    STR             reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    COUT            reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    WHILE           reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    FOR             reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    IF              reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    $end            reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+    RBLOCK          reduce using rule 7 (statement -> CIN ID SEMICOLON .)
+
+
+state 31
+
+    (8) statement -> STR ID EQUAL . STRING SEMICOLON
+
+    STRING          shift and go to state 45
+
+
+state 32
+
+    (9) statement -> COUT expression SEMICOLON .
+
+    INT             reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    CIN             reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    STR             reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    COUT            reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    WHILE           reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    FOR             reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    IF              reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    $end            reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+    RBLOCK          reduce using rule 9 (statement -> COUT expression SEMICOLON .)
+
+
+state 33
+
+    (11) expression -> expression PLUS . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 46
+
+state 34
+
+    (12) expression -> expression MINUS . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 47
+
+state 35
+
+    (13) expression -> expression TIMES . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 48
+
+state 36
+
+    (14) expression -> expression DIVIDE . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 49
+
+state 37
+
+    (10) statement -> COUT STRING SEMICOLON .
+
+    INT             reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    CIN             reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    STR             reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    COUT            reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    WHILE           reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    FOR             reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    IF              reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    $end            reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+    RBLOCK          reduce using rule 10 (statement -> COUT STRING SEMICOLON .)
+
+
+state 38
+
+    (15) expression -> MINUS expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 15 (expression -> MINUS expression .)
+    PLUS            reduce using rule 15 (expression -> MINUS expression .)
+    MINUS           reduce using rule 15 (expression -> MINUS expression .)
+    TIMES           reduce using rule 15 (expression -> MINUS expression .)
+    DIVIDE          reduce using rule 15 (expression -> MINUS expression .)
+    RPAREN          reduce using rule 15 (expression -> MINUS expression .)
+    LESS            reduce using rule 15 (expression -> MINUS expression .)
+    GREATER         reduce using rule 15 (expression -> MINUS expression .)
+    DEQUAL          reduce using rule 15 (expression -> MINUS expression .)
+    DISTINT         reduce using rule 15 (expression -> MINUS expression .)
+    LESSEQUAL       reduce using rule 15 (expression -> MINUS expression .)
+    GREATEREQUAL    reduce using rule 15 (expression -> MINUS expression .)
+
+  ! PLUS            [ shift and go to state 33 ]
+  ! MINUS           [ shift and go to state 34 ]
+  ! TIMES           [ shift and go to state 35 ]
+  ! DIVIDE          [ shift and go to state 36 ]
+
+
+state 39
+
+    (16) expression -> LPAREN expression . RPAREN
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    RPAREN          shift and go to state 50
+    PLUS            shift and go to state 33
+    MINUS           shift and go to state 34
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+
+state 40
+
+    (18) sentencia_mientras -> WHILE LPAREN condicion . RPAREN LBLOCK lista_sentencia RBLOCK
+
+    RPAREN          shift and go to state 51
+
+
+state 41
+
+    (28) condicion -> expression . condiciones expression
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+    (22) condiciones -> . LESS
+    (23) condiciones -> . GREATER
+    (24) condiciones -> . DEQUAL
+    (25) condiciones -> . DISTINT
+    (26) condiciones -> . LESSEQUAL
+    (27) condiciones -> . GREATEREQUAL
+
+    PLUS            shift and go to state 33
+    MINUS           shift and go to state 34
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+    LESS            shift and go to state 53
+    GREATER         shift and go to state 54
+    DEQUAL          shift and go to state 55
+    DISTINT         shift and go to state 56
+    LESSEQUAL       shift and go to state 57
+    GREATEREQUAL    shift and go to state 58
+
+    condiciones                    shift and go to state 52
+
+state 42
+
+    (19) sentencia_para -> FOR LPAREN ID . EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+
+    EQUAL           shift and go to state 59
+
+
+state 43
+
+    (20) sentencia_si -> IF LPAREN condicion . RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> IF LPAREN condicion . RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    RPAREN          shift and go to state 60
+
+
+state 44
+
+    (6) statement -> INT ID EQUAL expression . SEMICOLON
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 61
+    PLUS            shift and go to state 33
+    MINUS           shift and go to state 34
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+
+state 45
+
+    (8) statement -> STR ID EQUAL STRING . SEMICOLON
+
+    SEMICOLON       shift and go to state 62
+
+
+state 46
+
+    (11) expression -> expression PLUS expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 11 (expression -> expression PLUS expression .)
+    PLUS            reduce using rule 11 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 11 (expression -> expression PLUS expression .)
+    RPAREN          reduce using rule 11 (expression -> expression PLUS expression .)
+    LESS            reduce using rule 11 (expression -> expression PLUS expression .)
+    GREATER         reduce using rule 11 (expression -> expression PLUS expression .)
+    DEQUAL          reduce using rule 11 (expression -> expression PLUS expression .)
+    DISTINT         reduce using rule 11 (expression -> expression PLUS expression .)
+    LESSEQUAL       reduce using rule 11 (expression -> expression PLUS expression .)
+    GREATEREQUAL    reduce using rule 11 (expression -> expression PLUS expression .)
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+  ! TIMES           [ reduce using rule 11 (expression -> expression PLUS expression .) ]
+  ! DIVIDE          [ reduce using rule 11 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 33 ]
+  ! MINUS           [ shift and go to state 34 ]
+
+
+state 47
+
+    (12) expression -> expression MINUS expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 12 (expression -> expression MINUS expression .)
+    PLUS            reduce using rule 12 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 12 (expression -> expression MINUS expression .)
+    RPAREN          reduce using rule 12 (expression -> expression MINUS expression .)
+    LESS            reduce using rule 12 (expression -> expression MINUS expression .)
+    GREATER         reduce using rule 12 (expression -> expression MINUS expression .)
+    DEQUAL          reduce using rule 12 (expression -> expression MINUS expression .)
+    DISTINT         reduce using rule 12 (expression -> expression MINUS expression .)
+    LESSEQUAL       reduce using rule 12 (expression -> expression MINUS expression .)
+    GREATEREQUAL    reduce using rule 12 (expression -> expression MINUS expression .)
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+  ! TIMES           [ reduce using rule 12 (expression -> expression MINUS expression .) ]
+  ! DIVIDE          [ reduce using rule 12 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 33 ]
+  ! MINUS           [ shift and go to state 34 ]
+
+
+state 48
+
+    (13) expression -> expression TIMES expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 13 (expression -> expression TIMES expression .)
+    PLUS            reduce using rule 13 (expression -> expression TIMES expression .)
+    MINUS           reduce using rule 13 (expression -> expression TIMES expression .)
+    TIMES           reduce using rule 13 (expression -> expression TIMES expression .)
+    DIVIDE          reduce using rule 13 (expression -> expression TIMES expression .)
+    RPAREN          reduce using rule 13 (expression -> expression TIMES expression .)
+    LESS            reduce using rule 13 (expression -> expression TIMES expression .)
+    GREATER         reduce using rule 13 (expression -> expression TIMES expression .)
+    DEQUAL          reduce using rule 13 (expression -> expression TIMES expression .)
+    DISTINT         reduce using rule 13 (expression -> expression TIMES expression .)
+    LESSEQUAL       reduce using rule 13 (expression -> expression TIMES expression .)
+    GREATEREQUAL    reduce using rule 13 (expression -> expression TIMES expression .)
+
+  ! PLUS            [ shift and go to state 33 ]
+  ! MINUS           [ shift and go to state 34 ]
+  ! TIMES           [ shift and go to state 35 ]
+  ! DIVIDE          [ shift and go to state 36 ]
+
+
+state 49
+
+    (14) expression -> expression DIVIDE expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       reduce using rule 14 (expression -> expression DIVIDE expression .)
+    PLUS            reduce using rule 14 (expression -> expression DIVIDE expression .)
+    MINUS           reduce using rule 14 (expression -> expression DIVIDE expression .)
+    TIMES           reduce using rule 14 (expression -> expression DIVIDE expression .)
+    DIVIDE          reduce using rule 14 (expression -> expression DIVIDE expression .)
+    RPAREN          reduce using rule 14 (expression -> expression DIVIDE expression .)
+    LESS            reduce using rule 14 (expression -> expression DIVIDE expression .)
+    GREATER         reduce using rule 14 (expression -> expression DIVIDE expression .)
+    DEQUAL          reduce using rule 14 (expression -> expression DIVIDE expression .)
+    DISTINT         reduce using rule 14 (expression -> expression DIVIDE expression .)
+    LESSEQUAL       reduce using rule 14 (expression -> expression DIVIDE expression .)
+    GREATEREQUAL    reduce using rule 14 (expression -> expression DIVIDE expression .)
+
+  ! PLUS            [ shift and go to state 33 ]
+  ! MINUS           [ shift and go to state 34 ]
+  ! TIMES           [ shift and go to state 35 ]
+  ! DIVIDE          [ shift and go to state 36 ]
+
+
+state 50
+
+    (16) expression -> LPAREN expression RPAREN .
+
+    SEMICOLON       reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    LESS            reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    GREATER         reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    DEQUAL          reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    DISTINT         reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    LESSEQUAL       reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+    GREATEREQUAL    reduce using rule 16 (expression -> LPAREN expression RPAREN .)
+
+
+state 51
+
+    (18) sentencia_mientras -> WHILE LPAREN condicion RPAREN . LBLOCK lista_sentencia RBLOCK
+
+    LBLOCK          shift and go to state 63
+
+
+state 52
+
+    (28) condicion -> expression condiciones . expression
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 64
+
+state 53
+
+    (22) condiciones -> LESS .
+
+    MINUS           reduce using rule 22 (condiciones -> LESS .)
+    LPAREN          reduce using rule 22 (condiciones -> LESS .)
+    NUMBER          reduce using rule 22 (condiciones -> LESS .)
+    ID              reduce using rule 22 (condiciones -> LESS .)
+
+
+state 54
+
+    (23) condiciones -> GREATER .
+
+    MINUS           reduce using rule 23 (condiciones -> GREATER .)
+    LPAREN          reduce using rule 23 (condiciones -> GREATER .)
+    NUMBER          reduce using rule 23 (condiciones -> GREATER .)
+    ID              reduce using rule 23 (condiciones -> GREATER .)
+
+
+state 55
+
+    (24) condiciones -> DEQUAL .
+
+    MINUS           reduce using rule 24 (condiciones -> DEQUAL .)
+    LPAREN          reduce using rule 24 (condiciones -> DEQUAL .)
+    NUMBER          reduce using rule 24 (condiciones -> DEQUAL .)
+    ID              reduce using rule 24 (condiciones -> DEQUAL .)
+
+
+state 56
+
+    (25) condiciones -> DISTINT .
+
+    MINUS           reduce using rule 25 (condiciones -> DISTINT .)
+    LPAREN          reduce using rule 25 (condiciones -> DISTINT .)
+    NUMBER          reduce using rule 25 (condiciones -> DISTINT .)
+    ID              reduce using rule 25 (condiciones -> DISTINT .)
+
+
+state 57
+
+    (26) condiciones -> LESSEQUAL .
+
+    MINUS           reduce using rule 26 (condiciones -> LESSEQUAL .)
+    LPAREN          reduce using rule 26 (condiciones -> LESSEQUAL .)
+    NUMBER          reduce using rule 26 (condiciones -> LESSEQUAL .)
+    ID              reduce using rule 26 (condiciones -> LESSEQUAL .)
+
+
+state 58
+
+    (27) condiciones -> GREATEREQUAL .
+
+    MINUS           reduce using rule 27 (condiciones -> GREATEREQUAL .)
+    LPAREN          reduce using rule 27 (condiciones -> GREATEREQUAL .)
+    NUMBER          reduce using rule 27 (condiciones -> GREATEREQUAL .)
+    ID              reduce using rule 27 (condiciones -> GREATEREQUAL .)
+
+
+state 59
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL . expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 65
+
+state 60
+
+    (20) sentencia_si -> IF LPAREN condicion RPAREN . LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> IF LPAREN condicion RPAREN . LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    LBLOCK          shift and go to state 66
+
+
+state 61
+
+    (6) statement -> INT ID EQUAL expression SEMICOLON .
+
+    INT             reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    CIN             reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    STR             reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    COUT            reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    WHILE           reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    FOR             reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    IF              reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    $end            reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+    RBLOCK          reduce using rule 6 (statement -> INT ID EQUAL expression SEMICOLON .)
+
+
+state 62
+
+    (8) statement -> STR ID EQUAL STRING SEMICOLON .
+
+    INT             reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    CIN             reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    STR             reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    COUT            reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    WHILE           reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    FOR             reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    IF              reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    $end            reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+    RBLOCK          reduce using rule 8 (statement -> STR ID EQUAL STRING SEMICOLON .)
+
+
+state 63
+
+    (18) sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK . lista_sentencia RBLOCK
+    (33) lista_sentencia -> . lista_sentencia sentencia
+    (34) lista_sentencia -> . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    lista_sentencia                shift and go to state 67
+    sentencia                      shift and go to state 68
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 64
+
+    (28) condicion -> expression condiciones expression .
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    RPAREN          reduce using rule 28 (condicion -> expression condiciones expression .)
+    PLUS            shift and go to state 33
+    MINUS           shift and go to state 34
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+
+state 65
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL expression . SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    SEMICOLON       shift and go to state 70
+    PLUS            shift and go to state 33
+    MINUS           shift and go to state 34
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+
+state 66
+
+    (20) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK . lista_sentencia RBLOCK
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK . lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+    (33) lista_sentencia -> . lista_sentencia sentencia
+    (34) lista_sentencia -> . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    lista_sentencia                shift and go to state 71
+    sentencia                      shift and go to state 68
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 67
+
+    (18) sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia . RBLOCK
+    (33) lista_sentencia -> lista_sentencia . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    RBLOCK          shift and go to state 72
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    sentencia                      shift and go to state 73
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 68
+
+    (34) lista_sentencia -> sentencia .
+
+    RBLOCK          reduce using rule 34 (lista_sentencia -> sentencia .)
+    WHILE           reduce using rule 34 (lista_sentencia -> sentencia .)
+    INT             reduce using rule 34 (lista_sentencia -> sentencia .)
+    CIN             reduce using rule 34 (lista_sentencia -> sentencia .)
+    STR             reduce using rule 34 (lista_sentencia -> sentencia .)
+    COUT            reduce using rule 34 (lista_sentencia -> sentencia .)
+    FOR             reduce using rule 34 (lista_sentencia -> sentencia .)
+    IF              reduce using rule 34 (lista_sentencia -> sentencia .)
+
+
+state 69
+
+    (30) sentencia -> statement .
+
+    RBLOCK          reduce using rule 30 (sentencia -> statement .)
+    WHILE           reduce using rule 30 (sentencia -> statement .)
+    INT             reduce using rule 30 (sentencia -> statement .)
+    CIN             reduce using rule 30 (sentencia -> statement .)
+    STR             reduce using rule 30 (sentencia -> statement .)
+    COUT            reduce using rule 30 (sentencia -> statement .)
+    FOR             reduce using rule 30 (sentencia -> statement .)
+    IF              reduce using rule 30 (sentencia -> statement .)
+
+
+state 70
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON . expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (11) expression -> . expression PLUS expression
+    (12) expression -> . expression MINUS expression
+    (13) expression -> . expression TIMES expression
+    (14) expression -> . expression DIVIDE expression
+    (15) expression -> . MINUS expression
+    (16) expression -> . LPAREN expression RPAREN
+    (17) expression -> . NUMBER
+    (35) expression -> . ID
+
+    MINUS           shift and go to state 22
+    LPAREN          shift and go to state 23
+    NUMBER          shift and go to state 24
+    ID              shift and go to state 25
+
+    expression                     shift and go to state 74
+
+state 71
+
+    (20) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia . RBLOCK
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia . RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+    (33) lista_sentencia -> lista_sentencia . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    RBLOCK          shift and go to state 75
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    sentencia                      shift and go to state 73
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 72
+
+    (18) sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .
+
+    INT             reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    CIN             reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    STR             reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    COUT            reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    WHILE           reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    FOR             reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    IF              reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    $end            reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    RBLOCK          reduce using rule 18 (sentencia_mientras -> WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+
+
+state 73
+
+    (33) lista_sentencia -> lista_sentencia sentencia .
+
+    RBLOCK          reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+    WHILE           reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+    INT             reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+    CIN             reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+    STR             reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+    COUT            reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+    FOR             reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+    IF              reduce using rule 33 (lista_sentencia -> lista_sentencia sentencia .)
+
+
+state 74
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression . RPAREN LBLOCK lista_sentencia RBLOCK
+    (11) expression -> expression . PLUS expression
+    (12) expression -> expression . MINUS expression
+    (13) expression -> expression . TIMES expression
+    (14) expression -> expression . DIVIDE expression
+
+    RPAREN          shift and go to state 76
+    PLUS            shift and go to state 33
+    MINUS           shift and go to state 34
+    TIMES           shift and go to state 35
+    DIVIDE          shift and go to state 36
+
+
+state 75
+
+    (20) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK . ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    INT             reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    CIN             reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    STR             reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    COUT            reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    WHILE           reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    FOR             reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    IF              reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    $end            reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    RBLOCK          reduce using rule 20 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK .)
+    ELSE            shift and go to state 77
+
+
+state 76
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN . LBLOCK lista_sentencia RBLOCK
+
+    LBLOCK          shift and go to state 78
+
+
+state 77
+
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE . LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    LPAREN          shift and go to state 79
+
+
+state 78
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK . lista_sentencia RBLOCK
+    (33) lista_sentencia -> . lista_sentencia sentencia
+    (34) lista_sentencia -> . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    lista_sentencia                shift and go to state 80
+    sentencia                      shift and go to state 68
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 79
+
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN . RPAREN LBLOCK lista_sentencia RBLOCK
+
+    RPAREN          shift and go to state 81
+
+
+state 80
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia . RBLOCK
+    (33) lista_sentencia -> lista_sentencia . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    RBLOCK          shift and go to state 82
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    sentencia                      shift and go to state 73
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 81
+
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN . LBLOCK lista_sentencia RBLOCK
+
+    LBLOCK          shift and go to state 83
+
+
+state 82
+
+    (19) sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .
+
+    INT             reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    CIN             reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    STR             reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    COUT            reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    WHILE           reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    FOR             reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    IF              reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    $end            reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+    RBLOCK          reduce using rule 19 (sentencia_para -> FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK .)
+
+
+state 83
+
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK . lista_sentencia RBLOCK
+    (33) lista_sentencia -> . lista_sentencia sentencia
+    (34) lista_sentencia -> . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    lista_sentencia                shift and go to state 84
+    sentencia                      shift and go to state 68
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 84
+
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia . RBLOCK
+    (33) lista_sentencia -> lista_sentencia . sentencia
+    (29) sentencia -> . sentencia_mientras
+    (30) sentencia -> . statement
+    (31) sentencia -> . sentencia_para
+    (32) sentencia -> . sentencia_si
+    (18) sentencia_mientras -> . WHILE LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (6) statement -> . INT ID EQUAL expression SEMICOLON
+    (7) statement -> . CIN ID SEMICOLON
+    (8) statement -> . STR ID EQUAL STRING SEMICOLON
+    (9) statement -> . COUT expression SEMICOLON
+    (10) statement -> . COUT STRING SEMICOLON
+    (19) sentencia_para -> . FOR LPAREN ID EQUAL expression SEMICOLON expression RPAREN LBLOCK lista_sentencia RBLOCK
+    (20) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK
+    (21) sentencia_si -> . IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK
+
+    RBLOCK          shift and go to state 85
+    WHILE           shift and go to state 13
+    INT             shift and go to state 6
+    CIN             shift and go to state 7
+    STR             shift and go to state 8
+    COUT            shift and go to state 9
+    FOR             shift and go to state 14
+    IF              shift and go to state 15
+
+    sentencia                      shift and go to state 73
+    sentencia_mientras             shift and go to state 10
+    statement                      shift and go to state 69
+    sentencia_para                 shift and go to state 11
+    sentencia_si                   shift and go to state 12
+
+state 85
+
+    (21) sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .
+
+    INT             reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    CIN             reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    STR             reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    COUT            reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    WHILE           reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    FOR             reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    IF              reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    $end            reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+    RBLOCK          reduce using rule 21 (sentencia_si -> IF LPAREN condicion RPAREN LBLOCK lista_sentencia RBLOCK ELSE LPAREN RPAREN LBLOCK lista_sentencia RBLOCK .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: reduce/reduce conflict in state 4 resolved using rule (declaration -> statement)
+WARNING: rejected rule (sentencia -> statement) in state 4
